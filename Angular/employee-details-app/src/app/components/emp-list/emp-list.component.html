@@ -1,0 +1,30 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Library</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+</nav><br/><br/>
+
+<input type="text" placeholder="Filter Text" #filterText (keyup)="filterOnKeyUpText($event.target)" />
+<input type="button" value="Filter" #buttonReference (click)="filterEmployeeList(filterText.value, buttonReference.value)" /> <br/><br/>
+
+<b>Two Way Data Binding</b><input type="text" [ngModel]="textValue" (ngModelChange)="filterOnKeyUpModul($event)" />
+<input type="button" value="Get Value" (click)="getValue()" /> <br/><br/>
+<br/><br/>
+
+<ng-container *ngFor="let employee of _dataService.employees">
+    <div class="card" style="width: 18rem; display: inline-block; margin: 10px;"  >
+        <img [src]="employee.avatar" class="card-img-top" alt="employee.name">
+        <div class="card-body">
+            <h5 class="card-title">Employee Name and Id: {{employee.name}} {{employee.id}}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <input [id]="employee.id" type="button" class="btn btn-dark" value="Delete" (click)="deleteEmployee($event)" />
+            <input [id]="employee.id" type="button" class="btn btn-dark" value="Delete" (click)="deleteEmployeeValue(employee.id)" />
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="empDetailsList.length === 0">
+    <h1>No Employee to Display...</h1>
+</ng-container>
