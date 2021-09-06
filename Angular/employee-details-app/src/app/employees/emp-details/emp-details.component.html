@@ -1,0 +1,7 @@
+<div class="card" style="width: 18rem; display: inline-block; margin: 10px;"  >   
+    <div class="card-body">
+        <h5 class="card-title">Employee Name and Id: {{employee.name}} {{employee.id}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <input [id]="employee.id" type="button" (click)="notifyParent(employee.id)" class="btn btn-dark" value="Delete" />
+    </div>
+</div>
