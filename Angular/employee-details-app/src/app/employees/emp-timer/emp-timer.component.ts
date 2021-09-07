@@ -1,18 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NotifierService } from 'src/app/services/notifier.service';
 
 @Component({
-  selector: 'app-emp-count',
-  templateUrl: './emp-count.component.html',
-  styleUrls: ['./emp-count.component.css']
+  selector: 'app-emp-timer',
+  templateUrl: './emp-timer.component.html',
+  styleUrls: ['./emp-timer.component.css']
 })
-export class EmpCountComponent implements OnInit {
-  @Input() empList: any;
+export class EmpTimerComponent implements OnInit {
   currentTime: string = "";
   constructor(private _notifier: NotifierService) { 
     this._notifier.notifierEvent.subscribe((data: any) => {
       debugger;
-      if(data.name == "Counter") {
+      if(data.name == "Timer") {
         this.currentTime = data.time;
       }
     })

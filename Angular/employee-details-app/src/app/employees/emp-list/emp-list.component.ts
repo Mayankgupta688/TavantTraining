@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
   selector: 'app-emp-list-data',
@@ -10,21 +11,31 @@ export class EmpListComponentEmployees implements OnInit {
 
   managerName: string = "Mayank Gupta"
   empList: any = [];
-  constructor(private _httpClient: HttpClient) { 
-    this._httpClient.get("https://5c055de56b84ee00137d25a0.mockapi.io/api/v1/employees").subscribe((response) => {
+  constructor(private _employeeService: EmployeeService) { }
+
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  getData() {
+    this._employeeService.getData().subscribe((response) => {
       this.empList = response;
     })
   }
 
-
   deleteEmployee(empId: any) {
-    debugger;
-    this.empList = this.empList.filter((emp: any) => {
-      return emp.id !== empId
+    this._employeeService.deleteEmployee(empId).subscribe(() => {
+      this.getData();
     })
   }
 
-  ngOnInit(): void {
+  addEmployeeParent(empData: any) {
+    this._employeeService.addEmployeeParent(empData).subscribe(() => {
+      this.getData();
+    })
   }
 
+  ngOnDestroy() {
+    console.log("Component Destroyed....");
+  }
 }

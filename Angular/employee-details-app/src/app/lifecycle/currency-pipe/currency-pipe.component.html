@@ -1,0 +1,19 @@
+<h1>User with the name {{userName | replacePipe : " " : "_"}} has salary = {{userSalary}}</h1>    
+<h1>User with the name {{userName | replacePipe : "," : "-" | replacePipe : "-" : ""| replacePipe : "@" : "" | replacePipe : " " : ""}} has salary = {{userSalary  | currency : "INR" : "symbol": '4.5'}}</h1>  
+
+
+<div *delayRendering="15000">
+    <b>This is Delayed Rendering 15</b><br/>
+    <label>This is Template</label>
+</div>
+
+<div *delayRendering="5000">
+    <b>This is Delayed Rendering 5</b><br/>
+    <label>This is Template</label>
+</div>
+
+<div *delayRendering="10000">
+    <b>This is Delayed Rendering 10</b><br/>
+    <label>This is Template</label>
+</div>
+

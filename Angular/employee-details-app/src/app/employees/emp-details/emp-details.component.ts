@@ -12,7 +12,6 @@ export class EmpDetailsComponent {
   @Output() deleteEmployeeNotifification = new EventEmitter();
 
   notifyParent(empId: string) {
-    debugger;
     this.deleteEmployeeNotifification.emit(empId);
   }
 

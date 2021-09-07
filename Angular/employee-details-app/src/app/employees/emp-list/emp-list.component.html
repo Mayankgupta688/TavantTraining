@@ -1,9 +1,12 @@
-<app-emp-count [empList]="empList"></app-emp-count>
+<h1 applyColor>Employee List is Given Below</h1>
+
+<app-add-employee
+    (addEmployeeNotifier)="addEmployeeParent($event)"
+></app-add-employee>
 
 <ng-container *ngFor="let employee of empList">
     <app-emp-details 
         [employee]="employee"
         (deleteEmployeeNotifification)="deleteEmployee($event)"
-
-        ></app-emp-details>
+    ></app-emp-details>
 </ng-container>
