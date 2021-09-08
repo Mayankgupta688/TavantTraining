@@ -1,0 +1,8 @@
+<form [formGroup]="employeeAddForm" (ngSubmit)="submitData()">
+    <label>Enter Name</label><input type="text" formControlName="userName" /><br/><br/>
+    <label>Enter Id</label><input type="text" formControlName="userId" /><br/><br/>
+    <label>Enter Avatar</label><input type="text" formControlName="userAvatar" /><br/><br/>
+    <label>Enter Created At</label><input type="text" formControlName="userCreatedAt" /><br/><br/>
+
+    <input type="submit" value="Add User" [disabled]="!employeeAddForm.valid" />
+</form>

@@ -1,0 +1,6 @@
+<div *ngFor="let employee of empList">
+    Employee Name: {{employee.name}}<br/><br/>
+    <input type="button" value="Get Details" (click)="navigateEmployee(employee.id)" />
+    <hr/>
+</div>
+<hr/><br/>
